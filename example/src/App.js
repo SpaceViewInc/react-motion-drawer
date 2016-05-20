@@ -21,37 +21,20 @@ export default class App extends Component {
 
     return (
       <div>
-      { !openRight &&
-      <Drawer {...drawerProps} fadeOut={true} open={openLeft} onChange={open => this.setState({ openLeft: open})}>
-        <div style={{ width: '100%' }}>
-          <img src="../media/planurahuette.jpg"/>
-        </div>
-        <div style={{ padding: '2em' }}>
-          <h3>Navigation</h3>
-         </div>
-      </Drawer> }
-      { !openLeft &&
-      <Drawer right={true} {...drawerProps} open={openRight} onChange={open => this.setState({ openRight: open})}>
-        {val => {
-          var per = val/ 300;
-          return <div style={{ backgroundColor: `rgba(0, 184, 212, ${per})`, width: '100%', height: '100%' }} />;
-          }
+      <Drawer openDirection={"right"} {...drawerProps} open={openLeft} onChange={open => this.setState({ openLeft: open})}>
+      {val => {
+        var per = val/ 300;
+        return <div style={{ backgroundColor: `rgba(0, 184, 212, ${per})`, width: '100%', height: '100%' }} />;
         }
-      </Drawer> }
+      }
+         </Drawer>
       <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper cyan accent-4">
           <a href="#" className="brand-logo center">rm-drawer</a>
           <ul className="left">
             <li style={{ cursor: 'pointer', height: '100%' }}>
-            <a style={{ padding: 15}} className='' onClick={()=>this.setState({openLeft:!openLeft, openRight: false})}>
-              <i className="fa fa-bars"></i>
-            </a>
-            </li>
-          </ul>
-          <ul className="right">
-            <li style={{ cursor: 'pointer', height: '100%' }}>
-            <a style={{ padding: 15}} className='' onClick={()=>this.setState({openRight:!openRight, openLeft: false})}>
+            <a style={{ padding: 15}} className='' onClick={()=>this.setState({openLeft: !openLeft})}>
               <i className="fa fa-bars"></i>
             </a>
             </li>
