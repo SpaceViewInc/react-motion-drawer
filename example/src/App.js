@@ -21,7 +21,7 @@ export default class App extends Component {
 
     return (
       <div>
-      <Drawer openDirection={"right"} {...drawerProps} open={openLeft} onChange={open => this.setState({ openLeft: open})}>
+      <Drawer position={"bottom"} width={"100%"} height={300}  {...drawerProps} open={openLeft} onChange={open => this.setState({ openLeft: open})}>
       {val => {
         var per = val/ 300;
         return <div style={{ backgroundColor: `rgba(0, 184, 212, ${per})`, width: '100%', height: '100%' }} />;

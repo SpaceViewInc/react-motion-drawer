@@ -30,7 +30,7 @@ export default class Drawer extends React.Component {
     overlayClassName: string, // additional overlay className
     config: array, // configuration of the react-motion animation
     open: bool, // states if the drawer is open
-    width: number, // width of the drawer
+    width: oneOfType([number, string]), // width of the drawer
     height: oneOfType([number, string]), // height of the drawer
     handleWidth: number, // width of the handle
     handleHeight: number, // height of handle
@@ -60,6 +60,12 @@ export default class Drawer extends React.Component {
     fadeOut: false,
     offset: 0,
   };
+
+  componentDidMount() {
+    if (this.props.open) {
+      this.open();
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
     const {open} = this.props;
