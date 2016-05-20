@@ -11,10 +11,10 @@
     "minor-release": "npm run build && npm version minor && npm publish && git push --follow-tags",
     "major-release": "npm run build && npm version major && npm publish && git push --follow-tags"
   },
-  "main": "./drawer.js",
+  "main": "./lib/drawer.js",
   "files": [
-    "drawer.js",
-    "styles.js"
+    "./lib/drawer.js",
+    "./lib/styles.js"
   ],
   "repository": {
     "type": "git",
